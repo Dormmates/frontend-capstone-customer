@@ -23,13 +23,16 @@ const ShowMenu = () => {
   ];
 
   const [performingGroup, setPerformingGroup] = useState<string | null>(null);
+  const [showInput, setShowInput] = useState<string>("");
 
   return (
     <ContentWrapper className="flex flex-col gap-5">
-      <TextInput placeholder="Search a show" />
+      <TextInput placeholder="Search a show" value={showInput} onChange={(e) => setShowInput(e.target.value)} />
       <IconMenu options={iconMenuOptions} onSelect={setPerformingGroup} />
       <h1>Showing shows for {performingGroup ? performingGroup : "All Groups"}</h1>
-      <div className="grid grid-flow-col place-items-center">
+      <div className="grid grid-cols-6 gap-6 place-items-center">
+        <ShowCard />
+        <ShowCard />
         <ShowCard />
         <ShowCard />
         <ShowCard />
