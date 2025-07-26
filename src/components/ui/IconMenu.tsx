@@ -15,7 +15,7 @@ interface IconMenuProps {
 }
 
 const iconOptionStyle =
-  "w-full max-w-[150px] h-[120px] flex flex-col items-center justify-center p-5 rounded-lg cursor-pointer hover:bg-lightPrimary transition";
+  "max-w-[150px] h-[125px] flex flex-col items-center justify-center p-5 rounded-lg cursor-pointer hover:bg-lightPrimary transition";
 const selectedIconStyle = "transition bg-lightPrimary shadow-inner";
 
 export const IconOption = ({ imagePath, label, isClicked = false, onClick }: IconOptionProps) => {
@@ -27,7 +27,7 @@ export const IconOption = ({ imagePath, label, isClicked = false, onClick }: Ico
   );
 };
 
-const iconMenuStyle = "flex flex-row gap-10 justify-evenly";
+const iconMenuStyle = "grid grid-cols-4 md:grid-rows-1 md:grid-cols-7 place-items-center";
 
 export const IconMenu = ({ options, className, onSelect }: IconMenuProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

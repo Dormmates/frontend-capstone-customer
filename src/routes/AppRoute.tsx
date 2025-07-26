@@ -3,7 +3,6 @@ import CustomerLayout from "../layouts/CustomerLayout";
 import Unauthorized from "../pages/Unauthorized";
 import NotFound from "../pages/NotFound";
 import CustomerHome from "../pages/modules/customer/CustomerHome";
-
 import ShowMenu from "../pages/modules/customer/ShowMenu";
 
 const AppRoute = () => {

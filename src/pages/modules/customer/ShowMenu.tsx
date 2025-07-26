@@ -30,7 +30,7 @@ const ShowMenu = () => {
       <TextInput placeholder="Search a show" value={showInput} onChange={(e) => setShowInput(e.target.value)} />
       <IconMenu options={iconMenuOptions} onSelect={setPerformingGroup} />
       <h1>Showing shows for {performingGroup ? performingGroup : "All Groups"}</h1>
-      <div className="grid grid-cols-6 gap-6 place-items-center">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 place-items-center">
         <ShowCard />
         <ShowCard />
         <ShowCard />

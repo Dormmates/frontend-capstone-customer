@@ -15,10 +15,10 @@ const CustomerHeader = () => {
   };
 
   return (
-    <header className="top-0 left-0 w-full h-[120px] border-b border-b-slate-300">
+    <header className="w-full border-b border-b-slate-300">
       <ContentWrapper className="flex flex-row justify-between items-center">
-        <img className="w-full max-w-[150px] max-h-[100px]" src={cca_logo} alt="" />
-        <Button className="h-full max-h-[50px]" onClick={openCloseModal}>
+        <img className="w-full max-w-[100px] md:max-w-[150px] md:max-h-[100px]" src={cca_logo} alt="" />
+        <Button className="" onClick={openCloseModal}>
           Search Reservation
         </Button>
       </ContentWrapper>
