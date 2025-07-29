@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import select_image from "../../../assets/images/customer-select-landing.png";
 import choose_image from "../../../assets/images/customer-choose-landing.png";
 import reserve_image from "../../../assets/images/customer-reserve-landing.png";
-import cca_logo from "../../../assets/images/cca-logo.png";
 import cover_image from "../../../assets/images/customer-cover-landing.png";
 import tanghalang_slu_logo from "../../../assets/images/tanghalang-slu-logo.png";
 import glee_club_logo from "../../../assets/images/glee-club-logo.png";
