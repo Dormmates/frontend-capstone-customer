@@ -18,7 +18,6 @@ const AppRoute = () => {
           <Route index element={<ShowSchedule />} />
           <Route path=":showScheduleID" />
         </Route>
-        <Route path="show-test" element={<SelectedShowLayout />} />
       </Route>
 
       {/** Other Routes*/}
