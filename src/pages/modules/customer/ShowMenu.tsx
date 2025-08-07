@@ -36,7 +36,12 @@ const ShowMenu = () => {
 
   const filterShows = data?.shows.filter((show) => {
     const showMatchedWithDepartment =
-      !performingGroup || performingGroup.label === "All Groups" || show.departmentId === performingGroup.departmentId;
+      !performingGroup ||
+      performingGroup.label === "All Groups" ||
+      show.departmentId === performingGroup.departmentId ||
+      (performingGroup?.label === "Major Production" && show.showType === "majorProduction");
+
+    const searchedShow = show.title.toLowerCase().includes(showInput.toLowerCase());
 
     return showMatchedWithDepartment;
   });
@@ -50,16 +55,23 @@ const ShowMenu = () => {
       <IconMenu options={departmentsWithId} onSelect={setPerformingGroup} />
       <h1>Showing shows for {performingGroup?.label ?? "All Groups"}</h1>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6 place-items-center">
-        {filterShows?.map((show) => (
-          <ShowCard
-            key={show.showId}
-            imagePath={show.showCover}
-            showTitle={show.title}
-            showID={show.showId}
-            departmentID={show.departmentId}
-            showType={show.showType}
-          />
-        ))}
+        {filterShows?.length === 0 ? (
+          <div className="col-span-full text-center flex flex-col gap-2">
+            <h1 className="text-2xl font-semibold">0 Shows Found</h1>
+            <h2 className="text-sm font-light">Looks like the theater's empty.</h2>
+          </div>
+        ) : (
+          filterShows?.map((show) => (
+            <ShowCard
+              key={show.showId}
+              imagePath={show.showCover}
+              showTitle={show.title}
+              showID={show.showId}
+              departmentID={show.departmentId}
+              showType={show.showType}
+            />
+          ))
+        )}
       </div>
     </ContentWrapper>
   );
