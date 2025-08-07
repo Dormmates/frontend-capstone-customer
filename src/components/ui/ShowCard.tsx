@@ -3,9 +3,11 @@ import no_cover from "../../assets/images/no-show-cover.jpg";
 import { Link } from "react-router-dom";
 
 interface ShowCardProps {
-  imagePath?: string;
-  showTitle?: string;
-  showID?: string;
+  imagePath: string;
+  showTitle: string;
+  showID: string;
+  departmentID: string;
+  showType: string;
 }
 
 const ShowCard = ({ imagePath = no_cover, showTitle = "Test", showID = "1" }: ShowCardProps) => {

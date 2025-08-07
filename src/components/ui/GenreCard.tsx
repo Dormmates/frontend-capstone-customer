@@ -5,7 +5,7 @@ interface GenreCardProps {
 }
 
 const GenreCard = ({ genre }: GenreCardProps) => {
-  return <div className="bg-zinc-100 border border-zinc-400 py-2 px-4 rounded text-sm">{genre}</div>;
+  return <div className="bg-zinc-100 border border-zinc-400 py-2 px-6 rounded-lg text-xs">{genre}</div>;
 };
 
 export default GenreCard;

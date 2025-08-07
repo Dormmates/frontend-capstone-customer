@@ -4,6 +4,7 @@ import merge from "../../utils/merge";
 export interface IconOptionProps {
   imagePath: string;
   label?: string;
+  departmentId?: string | null;
   isClicked?: boolean;
   onClick?: () => void;
 }
@@ -11,7 +12,7 @@ export interface IconOptionProps {
 interface IconMenuProps {
   options: IconOptionProps[];
   className?: string;
-  onSelect?: (selectedLabel: string) => void;
+  onSelect?: (selectedLabel: IconOptionProps) => void;
 }
 
 const iconOptionStyle =
@@ -27,14 +28,14 @@ export const IconOption = ({ imagePath, label, isClicked = false, onClick }: Ico
   );
 };
 
-const iconMenuStyle = "grid grid-cols-4 md:grid-rows-1 md:grid-cols-7 place-items-center";
+const iconMenuStyle = "grid grid-cols-3 md:grid-rows-1 md:grid-cols-7 place-items-center";
 
 export const IconMenu = ({ options, className, onSelect }: IconMenuProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleClick = (index: number) => {
     setOpenIndex(index);
-    if (onSelect) onSelect(options[index].label ?? "");
+    if (onSelect) onSelect(options[index] ?? "");
   };
 
   return (

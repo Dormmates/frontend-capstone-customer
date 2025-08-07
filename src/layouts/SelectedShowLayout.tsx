@@ -24,24 +24,29 @@ const SelectedShowLayout = () => {
 
   return (
     <>
-      <div className="px-10 py-5 flex flex-col gap-5 items-center">
-        <div className="self-start">
-          <BreadCrumb backLink={""} items={[]} />
-        </div>
+      <div className="px-10 py-5 ">
+        <BreadCrumb backLink={""} items={[]} />
+      </div>
+      <div className="px-10 md:px-24 py-5 flex flex-col md:flex-row gap-5 items-center md:justify-center">
         <img className="w-full max-w-[200px] h-[300px] rounded" src={no_cover} alt="" />
-        <h1 className="font-bold">Show Title</h1>
-        <div className="flex flex-wrap flex-row gap-1 items-center">
-          {sampleGenre.length < 5 && renderAllGenres(sampleGenre)}
-          {sampleGenre.length >= 5 && (
-            <>
-              {displayGenre
-                ? renderAllGenres(sampleGenre)
-                : sampleGenre.slice(0, 4).map((value, index) => <GenreCard key={index} genre={value} />)}
-              {renderGenreToggle()}
-            </>
-          )}
+        <div className="flex flex-col gap-2 self-start">
+          <h1 className="font-bold">Show Title</h1>
+          <div className="flex flex-wrap flex-row gap-1 items-center md:max-w-[300px]">
+            {sampleGenre.length < 5 && renderAllGenres(sampleGenre)}
+            {sampleGenre.length >= 5 && (
+              <>
+                {displayGenre
+                  ? renderAllGenres(sampleGenre)
+                  : sampleGenre.slice(0, 4).map((value, index) => <GenreCard key={index} genre={value} />)}
+                {renderGenreToggle()}
+              </>
+            )}
+          </div>
+          <span className="text-md font-light self-start">Ticket Price</span>
+          <p className="text-md font-light self-start">Show Description</p>
         </div>
-        <p className="text-md font-light self-start">Show Description</p>
+      </div>
+      <div className="px-10 py-5">
         <Outlet />
       </div>
     </>
