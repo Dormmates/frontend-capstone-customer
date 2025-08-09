@@ -4,7 +4,7 @@ import icon from "../../assets/icons/back.png";
 interface Props {
   backLink: string;
   items: {
-    name: string;
+    name: string | undefined;
     path: string;
   }[];
 }
@@ -20,7 +20,8 @@ const BreadCrumb = ({ backLink, items }: Props) => {
           const isLastItem = index === items.length - 1;
           return (
             <Link key={index} to={item.path} className={isLastItem ? "underline pointer-events-none" : ""}>
-              <span className="hover:underline hover:opacity-50 duration-500 ease-linear">{item.name}</span> {isLastItem ? "" : <span>{"> "}</span>}
+              <span className="hover:underline hover:opacity-50 duration-500 ease-linear">{item.name}</span>{" "}
+              {isLastItem ? "" : <span>{"> "}</span>}
             </Link>
           );
         })}

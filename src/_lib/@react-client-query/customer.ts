@@ -14,6 +14,14 @@ interface ShowMenuData {
   showType: string;
 }
 
+interface SelectedShowData {
+  title: string;
+  showCover: string;
+  description: string;
+  genreNames?: string[];
+  showSchedules: { scheduleId: string; datetime: string }[];
+}
+
 interface MenuData {
   shows: ShowMenuData[];
   departments: DepartmentMenuData[];
@@ -24,6 +32,16 @@ export const useGetShowsForMenu = () => {
     queryKey: ["menu-shows"],
     queryFn: async () => {
       const res = await request<MenuData>(`/api/customer`, {}, "get");
+      return res.data;
+    },
+  });
+};
+
+export const useGetSelectedShowDetails = (showId: string) => {
+  return useQuery<SelectedShowData, Error>({
+    queryKey: ["selected-show", showId],
+    queryFn: async () => {
+      const res = await request<SelectedShowData>(`/api/customer/${showId}`, {}, "get");
       return res.data;
     },
   });

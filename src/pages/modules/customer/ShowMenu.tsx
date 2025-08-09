@@ -39,9 +39,9 @@ const ShowMenu = () => {
       !performingGroup ||
       performingGroup.label === "All Groups" ||
       show.departmentId === performingGroup.departmentId ||
-      (performingGroup?.label === "Major Production" && show.showType === "majorProduction");
+      (performingGroup?.label === "Major Production" && show.showType === "majorProduction"); // Not Working
 
-    const searchedShow = show.title.toLowerCase().includes(showInput.toLowerCase());
+    const searchedShow = show.title.toLowerCase().includes(showInput.toLowerCase()); // Not Working
 
     return showMatchedWithDepartment;
   });
