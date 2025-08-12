@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import no_cover from "../assets/images/no-show-cover.jpg";
 import GenreCard from "../components/ui/GenreCard";
 import { useGetSelectedShowDetails } from "../_lib/@react-client-query/customer";
+import { PageWrapper } from "../components/layout/Wrapper";
 
 const SelectedShowLayout = () => {
   const { showID } = useParams();
@@ -23,40 +24,52 @@ const SelectedShowLayout = () => {
     );
   };
 
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Something is wrong</p>;
+
   return (
     <>
-      <div className="px-10 py-5 ">
-        <BreadCrumb
-          backLink={"/customer/menu"}
-          items={[
-            { name: "Menu", path: "/customer/menu" },
-            { name: data?.title, path: "" },
-          ]}
-        />
-      </div>
-      {console.log(data)}
-      <div className="px-10 md:px-24 py-5 flex flex-col md:flex-row gap-5 items-center md:justify-center">
-        <img className="w-full max-w-[200px] h-[300px] rounded" src={data?.showCover} alt="" />
-        <div className="flex flex-col gap-2 self-start">
-          <h1 className="font-bold">{data?.title}</h1>
-          <div className="flex flex-wrap flex-row gap-1 items-center md:max-w-[300px]">
-            {(data?.genreNames?.length ?? 0) < 5 && renderAllGenres(data?.genreNames ?? [])}
-
-            {(data?.genreNames?.length ?? 0) >= 5 && (
-              <>
-                {displayGenre
-                  ? renderAllGenres(data?.genreNames ?? [])
-                  : (data?.genreNames ?? []).slice(0, 4).map((value, index) => <GenreCard key={index} genre={value} />)}
-                {renderGenreToggle()}
-              </>
-            )}
-          </div>
-          <p className="text-md font-light self-start">{data?.description}</p>
+      <PageWrapper className="md:min-w-[1000px]">
+        <div className="px-10 py-5 ">
+          <BreadCrumb
+            backLink={"/customer/menu"}
+            items={[
+              { name: "Menu", path: "/customer/menu" },
+              { name: data?.title, path: "" },
+            ]}
+          />
         </div>
-      </div>
-      <div className="px-10 py-5">
-        <Outlet />
-      </div>
+        <div className="px-10 py-5">
+          <div className="flex flex-col md:flex-row items-center md:justify-evenly">
+            <img
+              className="w-full max-w-[250px] aspect-[2/3] object-cover rounded"
+              src={data?.showCover || no_cover}
+              alt=""
+            />
+            <div className="flex flex-col gap-2 self-start">
+              <h1 className="font-bold text-xl md:text-2xl text-amber-900">{data?.title}</h1>
+              <div className="flex flex-wrap flex-row gap-1 items-center md:max-w-[300px]">
+                {(data?.genreNames?.length ?? 0) < 5 && renderAllGenres(data?.genreNames ?? [])}
+
+                {(data?.genreNames?.length ?? 0) >= 5 && (
+                  <>
+                    {displayGenre
+                      ? renderAllGenres(data?.genreNames ?? [])
+                      : (data?.genreNames ?? [])
+                          .slice(0, 4)
+                          .map((value, index) => <GenreCard key={index} genre={value} />)}
+                    {renderGenreToggle()}
+                  </>
+                )}
+              </div>
+              <p className="text-md font-light">{data?.description}</p>
+            </div>
+          </div>
+        </div>
+        <div className="px-10 py-5">
+          <Outlet />
+        </div>
+      </PageWrapper>
     </>
   );
 };

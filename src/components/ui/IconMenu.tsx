@@ -23,12 +23,12 @@ export const IconOption = ({ imagePath, label, isClicked = false, onClick }: Ico
   return (
     <div onClick={onClick} className={merge(iconOptionStyle, isClicked ? selectedIconStyle : "")}>
       <img className="w-full max-w-[60px] max-h-[60px]" src={imagePath} alt={label || "icon"} />
-      <span className="text-[12px] h-[16px] mt-2 text-center">{label || ""}</span>
+      <span className="text-[12px] mt-2 text-center">{label || ""}</span>
     </div>
   );
 };
 
-const iconMenuStyle = "grid grid-cols-3 md:grid-rows-1 md:grid-cols-7 place-items-center";
+const iconMenuStyle = "grid gap-2 grid-cols-3 md:grid-rows-1 md:grid-cols-7 place-items-center";
 
 export const IconMenu = ({ options, className, onSelect }: IconMenuProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
