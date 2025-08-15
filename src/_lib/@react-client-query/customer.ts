@@ -20,7 +20,7 @@ export interface SelectedShowData {
   showCover: string;
   description: string;
   genreNames?: string[];
-  showSchedules: { scheduleId: string; datetime: string }[];
+  showschedules: { scheduleId: string; datetime: string }[];
 }
 
 interface MenuData {

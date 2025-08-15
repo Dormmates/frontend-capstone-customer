@@ -10,11 +10,13 @@ export const formatSchedules = (
       month: "long",
       day: "numeric",
       year: "numeric",
+      timeZone: "Asia/Manila",
     });
 
     const time = dateObj.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
+      timeZone: "Asia/Manila",
     });
 
     if (!result[dateKey]) {

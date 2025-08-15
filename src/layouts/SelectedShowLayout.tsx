@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams, Outlet } from "react-router-dom";
 import BreadCrumb from "../components/ui/BreadCrumb";
 import no_cover from "../assets/images/no-show-cover.jpg";
 import GenreCard from "../components/ui/GenreCard";
 import { useGetSelectedShowDetails } from "../_lib/@react-client-query/customer";
 import { PageWrapper } from "../components/layout/Wrapper";
+import { ShowDataContext } from "../context/ShowDataContext";
 
 const SelectedShowLayout = () => {
   const { showID } = useParams();
@@ -61,9 +62,11 @@ const SelectedShowLayout = () => {
             </div>
           </div>
         </div>
-        <div className="px-10 py-5">
-          <Outlet />
-        </div>
+        <ShowDataContext.Provider value={data}>
+          <div className="px-10 py-5">
+            <Outlet />
+          </div>
+        </ShowDataContext.Provider>
       </PageWrapper>
     </>
   );
