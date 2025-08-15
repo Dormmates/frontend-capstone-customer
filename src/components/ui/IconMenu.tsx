@@ -3,7 +3,7 @@ import merge from "../../utils/merge";
 
 export interface IconOptionProps {
   imagePath: string;
-  label?: string;
+  label: string;
   departmentId?: string | null;
   isClicked?: boolean;
   onClick?: () => void;

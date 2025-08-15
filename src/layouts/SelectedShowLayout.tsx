@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet } from "react-router-dom";
 import BreadCrumb from "../components/ui/BreadCrumb";
-import { Outlet } from "react-router-dom";
 import no_cover from "../assets/images/no-show-cover.jpg";
 import GenreCard from "../components/ui/GenreCard";
 import { useGetSelectedShowDetails } from "../_lib/@react-client-query/customer";
@@ -41,11 +40,7 @@ const SelectedShowLayout = () => {
         </div>
         <div className="px-10 py-5">
           <div className="flex flex-col md:flex-row items-center md:justify-evenly">
-            <img
-              className="w-full max-w-[250px] aspect-[2/3] object-cover rounded"
-              src={data?.showCover || no_cover}
-              alt=""
-            />
+            <img className="w-full max-w-[250px] aspect-[2/3] rounded" src={data?.showCover || no_cover} alt="" />
             <div className="flex flex-col gap-2 self-start">
               <h1 className="font-bold text-xl md:text-2xl text-amber-900">{data?.title}</h1>
               <div className="flex flex-wrap flex-row gap-1 items-center md:max-w-[300px]">

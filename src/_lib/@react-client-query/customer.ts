@@ -1,9 +1,10 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { request } from "../api";
 
-export interface DepartmentMenuData {
+interface DepartmentMenuData {
   departmentId: string;
   name: string;
+  logoUrl: string;
 }
 
 interface ShowMenuData {
@@ -14,7 +15,7 @@ interface ShowMenuData {
   showType: string;
 }
 
-interface SelectedShowData {
+export interface SelectedShowData {
   title: string;
   showCover: string;
   description: string;
