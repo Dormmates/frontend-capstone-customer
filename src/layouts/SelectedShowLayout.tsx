@@ -29,8 +29,8 @@ const SelectedShowLayout = () => {
 
   return (
     <>
-      <PageWrapper className="md:min-w-[1000px]">
-        <div className="px-10 py-5 ">
+      <PageWrapper className="min-w-[300px] md:min-w-[800px]">
+        <div className="py-3 md:py-5">
           <BreadCrumb
             backLink={"/customer/menu"}
             items={[
@@ -39,12 +39,12 @@ const SelectedShowLayout = () => {
             ]}
           />
         </div>
-        <div className="px-10 py-5">
-          <div className="flex flex-col md:flex-row items-center md:justify-evenly">
+        <div className="py-3">
+          <div className="flex flex-col md:flex-row items-center md:justify-start md:gap-10">
             <img className="w-full max-w-[250px] aspect-[2/3] rounded" src={data?.showCover || no_cover} alt="" />
-            <div className="flex flex-col gap-2 self-start">
-              <h1 className="font-bold text-xl md:text-2xl text-amber-900">{data?.title}</h1>
-              <div className="flex flex-wrap flex-row gap-1 items-center md:max-w-[300px]">
+            <div className="flex flex-col gap-2 md:self-start md:max-w-[300px]">
+              <h1 className="font-bold text-xl text-center md:text-2xl text-amber-900">{data?.title}</h1>
+              <div className="flex flex-wrap flex-row gap-1 ">
                 {(data?.genreNames?.length ?? 0) < 5 && renderAllGenres(data?.genreNames ?? [])}
 
                 {(data?.genreNames?.length ?? 0) >= 5 && (
@@ -63,7 +63,7 @@ const SelectedShowLayout = () => {
           </div>
         </div>
         <ShowDataContext.Provider value={data}>
-          <div className="px-10 py-5">
+          <div className="py-3">
             <Outlet />
           </div>
         </ShowDataContext.Provider>
