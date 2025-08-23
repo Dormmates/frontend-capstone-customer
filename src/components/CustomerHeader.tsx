@@ -37,7 +37,9 @@ const CustomerHeader = () => {
             onChange={(e) => setReservationInput(e.target.value)}
           />
         </div>
-        <Button className="self-end max-w-[200px]">Search</Button>
+        <Button onClick={() => console.log(reservationInput)} className="self-end max-w-[200px]">
+          Search
+        </Button>
       </Modal>
     </header>
   );

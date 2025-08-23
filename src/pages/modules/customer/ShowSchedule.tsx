@@ -20,7 +20,7 @@ const ShowSchedule = () => {
           <h3 className="font-semibold">{date}</h3>
           <div className="flex flex-row flex-wrap gap-2">
             {times.map((timeData) => (
-              <Link to={`/customer/show/${showID}/${timeData.scheduleId}`}>
+              <Link to={`/customer/show/${showID}/schedule/${timeData.scheduleId}`}>
                 <div className="flex flex-row px-4 py-2 bg-slate-100 rounded border" key={timeData.scheduleId}>
                   {timeData.time}
                 </div>

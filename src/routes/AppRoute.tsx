@@ -8,6 +8,7 @@ import SelectedShowLayout from "../layouts/SelectedShowLayout";
 import ShowSchedule from "../pages/modules/customer/ShowSchedule";
 import SeatSelection from "../pages/modules/customer/SeatSelection";
 import InputCustomerDetails from "../pages/modules/customer/InputCustomerDetails";
+import SelectedShowScheduleLayout from "../layouts/SelectedShowScheduleLayout";
 
 const AppRoute = () => {
   return (
@@ -18,7 +19,10 @@ const AppRoute = () => {
         <Route path="menu" element={<ShowMenu />} />
         <Route path="show/:showID" element={<SelectedShowLayout />}>
           <Route index element={<ShowSchedule />} />
-          <Route path=":showScheduleID" element={<SeatSelection />} />
+          <Route path="schedule/:showScheduleID" element={<SelectedShowScheduleLayout />}>
+            <Route index element={<SeatSelection />} />
+            <Route path="reservation" element={<InputCustomerDetails />} />
+          </Route>
         </Route>
       </Route>
 

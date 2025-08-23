@@ -29,7 +29,7 @@ const SelectedShowLayout = () => {
 
   return (
     <>
-      <PageWrapper className="min-w-[300px] md:min-w-[800px]">
+      <PageWrapper className="px-3 min-w-[350px] md:w-[1000px]">
         <div className="py-3 md:py-5">
           <BreadCrumb
             backLink={"/customer/menu"}
@@ -39,7 +39,7 @@ const SelectedShowLayout = () => {
             ]}
           />
         </div>
-        <div className="py-3">
+        <div className="py-3 md:max-w-[800px]">
           <div className="flex flex-col md:flex-row items-center md:justify-start md:gap-10">
             <img className="w-full max-w-[250px] aspect-[2/3] rounded" src={data?.showCover || no_cover} alt="" />
             <div className="flex flex-col gap-2 md:self-start md:max-w-[300px]">
