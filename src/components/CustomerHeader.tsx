@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "./ui/Button";
 import Modal from "./ui/Modal";
 import { ContentWrapper } from "./layout/Wrapper";
@@ -17,7 +18,9 @@ const CustomerHeader = () => {
   return (
     <header className="w-full border-b border-b-slate-300">
       <ContentWrapper className="flex flex-row justify-between items-center">
-        <img className="w-full max-w-[100px] md:max-w-[150px] md:max-h-[100px]" src={cca_logo} alt="" />
+        <Link to={"/customer/menu"}>
+          <img className="w-full max-w-[100px] md:max-w-[150px] md:max-h-[100px]" src={cca_logo} alt="" />
+        </Link>
         <Button className="" onClick={openCloseModal}>
           Search Reservation
         </Button>
