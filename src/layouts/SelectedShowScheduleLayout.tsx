@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 // use step number to change the active state of 1 and 2
@@ -20,8 +20,8 @@ const SelectedShowScheduleLayout = () => {
             <span>Customer Details</span>
           </div>
         </div>
+        <Outlet />
       </div>
-      <Outlet />
     </div>
   );
 };

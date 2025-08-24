@@ -40,6 +40,7 @@ const CustomerHeader = () => {
         <Button onClick={() => console.log(reservationInput)} className="self-end max-w-[200px]">
           Search
         </Button>
+        <p>Here are the results</p>
       </Modal>
     </header>
   );
