@@ -15,6 +15,13 @@ interface ShowMenuData {
   showType: string;
 }
 
+interface ReservationData {
+  firstName: string;
+  lastName: string;
+  contact: string;
+  email: string;
+}
+
 export interface SelectedShowData {
   title: string;
   showCover: string;
@@ -27,6 +34,10 @@ interface MenuData {
   shows: ShowMenuData[];
   departments: DepartmentMenuData[];
 }
+
+type ValidateShowScheduleResponse = {
+  selectedShowSchedule: { scheduleId: string } | null;
+};
 
 export const useGetShowsForMenu = () => {
   return useQuery<MenuData, Error>({
@@ -45,5 +56,16 @@ export const useGetSelectedShowDetails = (showId: string) => {
       const res = await request<SelectedShowData>(`/api/customer/${showId}`, {}, "get");
       return res.data;
     },
+  });
+};
+
+export const useValidateSelectedShowSchedule = (showScheduleId: ValidateShowScheduleResponse) => {
+  return useQuery<ValidateShowScheduleResponse, Error>({
+    queryKey: ["valid-showSchedule", showScheduleId],
+    queryFn: async () => {
+      const res = await request<ValidateShowScheduleResponse>(`/api/customer/selected/${showScheduleId}`, {}, "get");
+      return res.data;
+    },
+    retry: false,
   });
 };

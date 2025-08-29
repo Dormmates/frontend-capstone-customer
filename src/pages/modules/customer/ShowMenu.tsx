@@ -37,9 +37,9 @@ const ShowMenu = () => {
       show.departmentId === performingGroup.departmentId ||
       (performingGroup?.label === "Major Production" && show.showType === "majorProduction");
 
-    const searchedShow = show.title.toLowerCase().includes(showInput.toLowerCase()); // Not Working
+    const searchedShow = show.title.toLowerCase().includes(showInput.toLowerCase().trim());
 
-    return showMatchedWithDepartment;
+    return showMatchedWithDepartment && searchedShow;
   });
 
   if (isLoading) return <p>Loading...</p>;
